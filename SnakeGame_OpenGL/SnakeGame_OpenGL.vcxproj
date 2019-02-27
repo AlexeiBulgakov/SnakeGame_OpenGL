@@ -69,13 +69,25 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ExecutablePath>$(SolutionDir)SnakeGame_OpenGL\GLUT;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>$(SolutionDir)SnakeGame_OpenGL\GLUT;$(IncludePath)</IncludePath>
+    <ReferencePath>$(SolutionDir)SnakeGame_OpenGL\GLUT;$(ReferencePath)</ReferencePath>
+    <LibraryPath>$(SolutionDir)SnakeGame_OpenGL\GLUT;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ExecutablePath>$(SolutionDir)SnakeGame_OpenGL\GLUT;$(ExecutablePath)</ExecutablePath>
+    <IncludePath>$(SolutionDir)SnakeGame_OpenGL\GLUT;$(IncludePath)</IncludePath>
+    <ReferencePath>$(SolutionDir)SnakeGame_OpenGL\GLUT;$(ReferencePath)</ReferencePath>
+    <LibraryPath>$(SolutionDir)SnakeGame_OpenGL\GLUT;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -94,6 +106,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -115,6 +128,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Dish.cpp" />
+    <ClCompile Include="GPE.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Snake.cpp" />
+    <ClCompile Include="SnakeGame.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="constants.h" />
+    <ClInclude Include="Dish.h" />
+    <ClInclude Include="GPE.h" />
+    <ClInclude Include="IOGLDraw.h" />
+    <ClInclude Include="Snake.h" />
+    <ClInclude Include="SnakeGame.h" />
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
